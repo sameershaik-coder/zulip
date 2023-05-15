@@ -25,15 +25,18 @@ if external_host_env is None:
     if IS_DEV_DROPLET:
         # For our droplets, we use the hostname (eg github_username.zulipdev.org) by default.
         # Note that this code is duplicated in run-dev.
-        EXTERNAL_HOST = os.uname()[1].lower() + ":9991"
+        #EXTERNAL_HOST = os.uname()[1].lower() + ":9991"
+        EXTERNAL_HOST = os.uname()[1].lower() + ":8000"
     else:
         # For local development environments, we use localhost by
         # default, via the "zulipdev.com" hostname.
-        EXTERNAL_HOST = "zulipdev.com:9991"
+        #EXTERNAL_HOST = "zulipdev.com:9991"
+        EXTERNAL_HOST = "zulipdev.com:8000"
         # Serve the main dev realm at the literal name "localhost",
         # so it works out of the box even when not on the Internet.
         REALM_HOSTS = {
-            "zulip": "localhost:9991",
+            #"zulip": "localhost:9991",
+            "zulip": "127.0.0.1:8000",
         }
 else:
     EXTERNAL_HOST = external_host_env
@@ -178,7 +181,8 @@ LANDING_PAGE_NAVBAR_MESSAGE: Optional[str] = None
 USE_X_FORWARDED_PORT = True
 
 # Override the default SAML entity ID
-SOCIAL_AUTH_SAML_SP_ENTITY_ID = "http://localhost:9991"
+#SOCIAL_AUTH_SAML_SP_ENTITY_ID = "http://localhost:9991"
+SOCIAL_AUTH_SAML_SP_ENTITY_ID = "http://localhost:8000"
 
 SOCIAL_AUTH_SUBDOMAIN = "auth"
 

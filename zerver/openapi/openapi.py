@@ -429,7 +429,8 @@ def validate_against_openapi_schema(
         # TODO: Remove this after all events have been documented.
         fix_events(content)
 
-    mock_request = MockRequest("http://localhost:9991/", method, "/api/v1" + path)
+    #mock_request = MockRequest("http://localhost:9991/", method, "/api/v1" + path)
+    mock_request = MockRequest("http://localhost:8000/", method, "/api/v1" + path)
     mock_response = MockResponse(
         # TODO: Use original response content instead of re-serializing it.
         orjson.dumps(content).decode(),

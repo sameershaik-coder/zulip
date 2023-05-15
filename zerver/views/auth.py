@@ -789,7 +789,7 @@ def login_page(
 ) -> HttpResponse:
     if get_subdomain(request) == settings.SOCIAL_AUTH_SUBDOMAIN:
         return social_auth_subdomain_login_page(request)
-
+    print("________________________AM IN THE MADHOUSE______________________________________________________")
     # To support previewing the Zulip login pages, we have a special option
     # that disables the default behavior of redirecting logged-in users to the
     # logged-in app.

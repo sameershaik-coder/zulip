@@ -124,6 +124,7 @@ def home(request: HttpRequest) -> HttpResponse:
         return hello_view(request)
 
     realm = get_realm_from_request(request)
+    #print("REALM IS ---------------------------------------------"+realm.name)
     if realm is None:
         return render(request, "zerver/invalid_realm.html", status=404)
     if realm.allow_web_public_streams_access():
